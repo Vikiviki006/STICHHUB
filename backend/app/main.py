@@ -12,6 +12,9 @@ from app.api.v1.router import api_router
 from app.db.session import engine
 from app.db.base import Base
 
+# Import models here to register them with SQLAlchemy metadata without circular imports
+from app.models import user, dress, fabric, order
+
 # Create all tables on startup (use Alembic in production)
 Base.metadata.create_all(bind=engine)
 
