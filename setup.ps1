@@ -47,6 +47,27 @@ New-Item -ItemType File -Force -Path `
 Write-Host "✅ StitchHub structure created!"
 
 
+$files = @(
+"backend/app/api/__init__.py",
+"backend/app/api/v1/__init__.py",
+"backend/app/api/v1/endpoints/__init__.py",
+"backend/app/models/__init__.py",
+"backend/app/schemas/__init__.py",
+"backend/app/services/__init__.py",
+"backend/app/core/__init__.py",
+"backend/app/db/__init__.py",
+"backend/app/utils/__init__.py"
+)
+
+foreach ($file in $files) {
+    New-Item -ItemType File -Path $file -Force
+}
+
+Write-Output "done"
+
+mkdir backend/app/utils; New-Item backend/app/utils/__init__.py -ItemType File -Force; echo "done"
+
+
 
 #Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 #.\setup.ps1
